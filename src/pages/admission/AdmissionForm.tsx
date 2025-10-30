@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/select";
 import { FileText, CircleDollarSign } from "lucide-react";
 import { toast } from "@/components/ui/use-toast";
+import { postAdmission } from "@/api/api";
 
 const AdmissionForm = () => {
   const [formData, setFormData] = useState({
@@ -74,15 +75,7 @@ const AdmissionForm = () => {
 
     setLoading(true);
     try {
-      const res = await fetch("/api/admission", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (!res.ok) throw new Error("Submission failed");
+      await postAdmission(formData);
 
       toast({
         title: "সফল!",

@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, MapPin, MessageCircle } from "lucide-react";
 import { toast } from "@/components/ui/use-toast";
+import { postContact } from "@/api/api";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -52,15 +53,7 @@ const Contact = () => {
 
     setLoading(true);
     try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (!res.ok) throw new Error("Submission failed");
+      await postContact(formData);
 
       toast({
         title: "সফল!",
