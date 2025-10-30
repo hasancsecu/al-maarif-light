@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -11,8 +12,107 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { FileText, CircleDollarSign } from "lucide-react";
+import { toast } from "@/components/ui/use-toast";
 
 const AdmissionForm = () => {
+  const [formData, setFormData] = useState({
+    studentName: "",
+    age: "",
+    gender: "",
+    phone: "",
+    email: "",
+    address: "",
+    course: "",
+    classType: "",
+    preferredTime: "",
+    comments: "",
+  });
+
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+    setErrors({ ...errors, [e.target.id]: "" });
+  };
+
+  const handleSelectChange = (name: string, value: string) => {
+    setFormData({ ...formData, [name]: value });
+    setErrors({ ...errors, [name]: "" });
+  };
+
+  const validateForm = () => {
+    const newErrors: { [key: string]: string } = {};
+
+    if (!formData.studentName.trim()) newErrors.studentName = "নাম প্রদান করুন";
+    if (!formData.age.trim()) newErrors.age = "বয়স প্রদান করুন";
+    if (!formData.gender.trim()) newErrors.gender = "লিঙ্গ নির্বাচন করুন";
+    if (!formData.phone.trim()) newErrors.phone = "মোবাইল নম্বর প্রদান করুন";
+    if (!formData.address.trim()) newErrors.address = "ঠিকানা প্রদান করুন";
+    if (!formData.course) newErrors.course = "কোর্স নির্বাচন করুন";
+    if (!formData.classType) newErrors.classType = "ক্লাসের ধরন নির্বাচন করুন";
+    if (!formData.preferredTime)
+      newErrors.preferredTime = "পছন্দের সময় নির্বাচন করুন";
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!validateForm()) {
+      toast({
+        title: "ত্রুটি!",
+        description: "সব বাধ্যতামূলক ঘর পূরণ করুন।",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const res = await fetch("/api/admission", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!res.ok) throw new Error("Submission failed");
+
+      toast({
+        title: "সফল!",
+        description: "আপনার ভর্তি ফরম সফলভাবে জমা হয়েছে।",
+      });
+
+      setFormData({
+        studentName: "",
+        age: "",
+        gender: "",
+        phone: "",
+        email: "",
+        address: "",
+        course: "",
+        classType: "",
+        preferredTime: "",
+        comments: "",
+      });
+      setErrors({});
+    } catch (error) {
+      toast({
+        title: "ত্রুটি!",
+        description: "ফরম জমা দিতে ব্যর্থ হয়েছে। আবার চেষ্টা করুন।",
+        variant: "destructive",
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-secondary/20">
       <div className="container mx-auto px-4 py-12">
@@ -24,6 +124,7 @@ const AdmissionForm = () => {
         </div>
 
         <div className="grid gap-6 lg:grid-cols-3">
+          {/* Admission Form */}
           <div className="lg:col-span-2">
             <Card className="shadow-elegant">
               <CardHeader>
@@ -33,22 +134,45 @@ const AdmissionForm = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <form className="space-y-4">
+                <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid gap-4 md:grid-cols-2">
                     <div className="space-y-2">
                       <Label htmlFor="studentName">শিক্ষার্থীর নাম *</Label>
-                      <Input id="studentName" placeholder="পূর্ণ নাম লিখুন" />
+                      <Input
+                        id="studentName"
+                        placeholder="পূর্ণ নাম লিখুন"
+                        value={formData.studentName}
+                        onChange={handleChange}
+                      />
+                      {errors.studentName && (
+                        <p className="text-sm text-red-500">
+                          {errors.studentName}
+                        </p>
+                      )}
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="age">বয়স *</Label>
-                      <Input id="age" type="number" placeholder="বয়স" />
+                      <Input
+                        id="age"
+                        type="number"
+                        placeholder="বয়স"
+                        value={formData.age}
+                        onChange={handleChange}
+                      />
+                      {errors.age && (
+                        <p className="text-sm text-red-500">{errors.age}</p>
+                      )}
                     </div>
                   </div>
-
                   <div className="grid gap-4 md:grid-cols-2">
                     <div className="space-y-2">
                       <Label htmlFor="gender">লিঙ্গ *</Label>
-                      <Select>
+                      <Select
+                        onValueChange={(val) =>
+                          handleSelectChange("gender", val)
+                        }
+                        value={formData.gender}
+                      >
                         <SelectTrigger>
                           <SelectValue placeholder="নির্বাচন করুন" />
                         </SelectTrigger>
@@ -57,33 +181,51 @@ const AdmissionForm = () => {
                           <SelectItem value="female">মহিলা</SelectItem>
                         </SelectContent>
                       </Select>
+                      {errors.gender && (
+                        <p className="text-sm text-red-500">{errors.gender}</p>
+                      )}
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="phone">মোবাইল নম্বর *</Label>
-                      <Input id="phone" placeholder="+880" />
+                      <Input
+                        id="phone"
+                        placeholder="+880"
+                        value={formData.phone}
+                        onChange={handleChange}
+                      />
+                      {errors.phone && (
+                        <p className="text-sm text-red-500">{errors.phone}</p>
+                      )}
                     </div>
                   </div>
-
                   <div className="space-y-2">
                     <Label htmlFor="email">ইমেইল</Label>
                     <Input
                       id="email"
                       type="email"
                       placeholder="example@email.com"
+                      value={formData.email}
+                      onChange={handleChange}
                     />
                   </div>
-
                   <div className="space-y-2">
                     <Label htmlFor="address">ঠিকানা *</Label>
                     <Textarea
                       id="address"
                       placeholder="সম্পূর্ণ ঠিকানা লিখুন"
+                      value={formData.address}
+                      onChange={handleChange}
                     />
+                    {errors.address && (
+                      <p className="text-sm text-red-500">{errors.address}</p>
+                    )}
                   </div>
-
                   <div className="space-y-2">
                     <Label htmlFor="course">কোর্স নির্বাচন *</Label>
-                    <Select>
+                    <Select
+                      onValueChange={(val) => handleSelectChange("course", val)}
+                      value={formData.course}
+                    >
                       <SelectTrigger>
                         <SelectValue placeholder="কোর্স নির্বাচন করুন" />
                       </SelectTrigger>
@@ -104,11 +246,18 @@ const AdmissionForm = () => {
                         <SelectItem value="arabic">আরবী ভাষা</SelectItem>
                       </SelectContent>
                     </Select>
+                    {errors.course && (
+                      <p className="text-sm text-red-500">{errors.course}</p>
+                    )}
                   </div>
-
                   <div className="space-y-2">
                     <Label htmlFor="classType">ক্লাসের ধরন *</Label>
-                    <Select>
+                    <Select
+                      onValueChange={(val) =>
+                        handleSelectChange("classType", val)
+                      }
+                      value={formData.classType}
+                    >
                       <SelectTrigger>
                         <SelectValue placeholder="নির্বাচন করুন" />
                       </SelectTrigger>
@@ -120,11 +269,18 @@ const AdmissionForm = () => {
                         <SelectItem value="group-5">গ্রুপ (৫ জন)</SelectItem>
                       </SelectContent>
                     </Select>
+                    {errors.classType && (
+                      <p className="text-sm text-red-500">{errors.classType}</p>
+                    )}
                   </div>
-
                   <div className="space-y-2">
                     <Label htmlFor="preferredTime">পছন্দের সময় *</Label>
-                    <Select>
+                    <Select
+                      onValueChange={(val) =>
+                        handleSelectChange("preferredTime", val)
+                      }
+                      value={formData.preferredTime}
+                    >
                       <SelectTrigger>
                         <SelectValue placeholder="সময় নির্বাচন করুন" />
                       </SelectTrigger>
@@ -143,18 +299,28 @@ const AdmissionForm = () => {
                         </SelectItem>
                       </SelectContent>
                     </Select>
+                    {errors.preferredTime && (
+                      <p className="text-sm text-red-500">
+                        {errors.preferredTime}
+                      </p>
+                    )}
                   </div>
-
                   <div className="space-y-2">
                     <Label htmlFor="comments">অতিরিক্ত মন্তব্য</Label>
                     <Textarea
                       id="comments"
                       placeholder="কোনো বিশেষ তথ্য থাকলে লিখুন"
+                      value={formData.comments}
+                      onChange={handleChange}
                     />
                   </div>
-
-                  <Button className="w-full" size="lg">
-                    ফরম জমা দিন
+                  <Button
+                    className="w-full"
+                    size="lg"
+                    type="submit"
+                    disabled={loading}
+                  >
+                    {loading ? "জমা হচ্ছে..." : "ফরম জমা দিন"}
                   </Button>
                 </form>
               </CardContent>

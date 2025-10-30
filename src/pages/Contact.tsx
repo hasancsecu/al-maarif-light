@@ -1,10 +1,91 @@
+import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, MapPin, MessageCircle } from "lucide-react";
+import { toast } from "@/components/ui/use-toast";
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: "",
+  });
+
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+    setErrors({ ...errors, [e.target.id]: "" });
+  };
+
+  const validateForm = () => {
+    const newErrors: { [key: string]: string } = {};
+
+    if (!formData.name.trim()) newErrors.name = "নাম প্রদান করুন";
+    if (!formData.email.trim()) newErrors.email = "ইমেইল প্রদান করুন";
+    if (!formData.phone.trim()) newErrors.phone = "মোবাইল নম্বর প্রদান করুন";
+    if (!formData.subject.trim()) newErrors.subject = "বিষয় প্রদান করুন";
+    if (!formData.message.trim()) newErrors.message = "বার্তা প্রদান করুন";
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!validateForm()) {
+      toast({
+        title: "ত্রুটি!",
+        description: "সব বাধ্যতামূলক ঘর পূরণ করুন।",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!res.ok) throw new Error("Submission failed");
+
+      toast({
+        title: "সফল!",
+        description: "আপনার বার্তা সফলভাবে প্রেরিত হয়েছে।",
+      });
+
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: "",
+      });
+      setErrors({});
+    } catch (error) {
+      toast({
+        title: "ত্রুটি!",
+        description: "বার্তা প্রেরণে ব্যর্থ হয়েছে। আবার চেষ্টা করুন।",
+        variant: "destructive",
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background py-12">
       <div className="container mx-auto px-4">
@@ -18,8 +99,7 @@ const Contact = () => {
         </div>
 
         <div className="grid gap-8 lg:grid-cols-2">
-          {/* Contact Form */}
-          <Card>
+          <Card className="shadow-elegant">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <MessageCircle className="h-5 w-5 text-primary" />
@@ -27,45 +107,87 @@ const Contact = () => {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <form className="space-y-4">
-                <div>
-                  <label className="mb-2 block text-sm font-medium">
-                    আপনার নাম
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="space-y-2">
+                  <label className="text-sm font-medium block">
+                    আপনার নাম *
                   </label>
-                  <Input placeholder="আপনার পূর্ণ নাম লিখুন" />
+                  <Input
+                    id="name"
+                    placeholder="আপনার পূর্ণ নাম লিখুন"
+                    value={formData.name}
+                    onChange={handleChange}
+                  />
+                  {errors.name && (
+                    <p className="text-sm text-red-500">{errors.name}</p>
+                  )}
                 </div>
-                <div>
-                  <label className="mb-2 block text-sm font-medium">
-                    ইমেইল
+
+                <div className="space-y-2">
+                  <label className="text-sm font-medium block">ইমেইল *</label>
+                  <Input
+                    id="email"
+                    type="email"
+                    placeholder="example@email.com"
+                    value={formData.email}
+                    onChange={handleChange}
+                  />
+                  {errors.email && (
+                    <p className="text-sm text-red-500">{errors.email}</p>
+                  )}
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-sm font-medium block">
+                    মোবাইল নম্বর *
                   </label>
-                  <Input type="email" placeholder="example@email.com" />
+                  <Input
+                    id="phone"
+                    type="tel"
+                    placeholder="+880 1886106782"
+                    value={formData.phone}
+                    onChange={handleChange}
+                  />
+                  {errors.phone && (
+                    <p className="text-sm text-red-500">{errors.phone}</p>
+                  )}
                 </div>
-                <div>
-                  <label className="mb-2 block text-sm font-medium">
-                    মোবাইল নম্বর
-                  </label>
-                  <Input type="tel" placeholder="+880 1886106782" />
+
+                <div className="space-y-2">
+                  <label className="text-sm font-medium block">বিষয় *</label>
+                  <Input
+                    id="subject"
+                    placeholder="বিষয় লিখুন"
+                    value={formData.subject}
+                    onChange={handleChange}
+                  />
+                  {errors.subject && (
+                    <p className="text-sm text-red-500">{errors.subject}</p>
+                  )}
                 </div>
-                <div>
-                  <label className="mb-2 block text-sm font-medium">
-                    বিষয়
-                  </label>
-                  <Input placeholder="বিষয় লিখুন" />
+
+                <div className="space-y-2">
+                  <label className="text-sm font-medium block">বার্তা *</label>
+                  <Textarea
+                    id="message"
+                    placeholder="আপনার বার্তা এখানে লিখুন"
+                    rows={5}
+                    value={formData.message}
+                    onChange={handleChange}
+                  />
+                  {errors.message && (
+                    <p className="text-sm text-red-500">{errors.message}</p>
+                  )}
                 </div>
-                <div>
-                  <label className="mb-2 block text-sm font-medium">
-                    বার্তা
-                  </label>
-                  <Textarea placeholder="আপনার বার্তা এখানে লিখুন" rows={5} />
-                </div>
-                <Button type="submit" className="w-full">
-                  বার্তা পাঠান
+
+                <Button type="submit" className="w-full" disabled={loading}>
+                  {loading ? "পাঠানো হচ্ছে..." : "বার্তা পাঠান"}
                 </Button>
               </form>
             </CardContent>
           </Card>
 
-          {/* Contact Information */}
+          {/* Contact Info */}
           <div className="space-y-6">
             <Card>
               <CardHeader>
@@ -73,7 +195,7 @@ const Contact = () => {
               </CardHeader>
               <CardContent className="space-y-6">
                 <div className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-primary/10">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
                     <Mail className="h-6 w-6 text-primary" />
                   </div>
                   <div>
@@ -85,7 +207,7 @@ const Contact = () => {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-primary/10">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
                     <Phone className="h-6 w-6 text-primary" />
                   </div>
                   <div>
@@ -97,7 +219,7 @@ const Contact = () => {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-primary/10">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
                     <MapPin className="h-6 w-6 text-primary" />
                   </div>
                   <div>
