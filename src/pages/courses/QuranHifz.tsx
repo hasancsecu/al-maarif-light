@@ -34,63 +34,107 @@ const QuranHifz = () => {
 
             <Card className="shadow-elegant">
               <CardHeader>
-                <CardTitle>ফযীলত</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                <p className="text-muted-foreground">
-                  রাসুলুল্লাহ ﷺ বলেছেন: "যে ব্যক্তি কুরআন পড়ে এবং তাতে
-                  পারদর্শী, সে থাকবে সম্মানিত ফেরেশতাদের সাথে।" (বুখারী ও
-                  মুসলিম)
-                </p>
-                <p className="text-muted-foreground">
-                  "কিয়ামতের দিন কুরআন হাফিজের পিতামাতাকে এমন মুকুট পরানো হবে
-                  যার আলো সূর্যের চেয়েও উজ্জ্বল।" (আবু দাউদ)
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="shadow-elegant">
-              <CardHeader>
                 <CardTitle>সিলেবাস</CardTitle>
               </CardHeader>
-              <CardContent>
-                <div className="space-y-3">
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="mt-1 h-5 w-5 flex-shrink-0 text-accent" />
-                    <div>
-                      <h4 className="font-semibold">আংশিক হিফজ</h4>
-                      <p className="text-sm text-muted-foreground">
-                        পারা ২৮-৩০ বা যেকোনো নির্দিষ্ট পারা
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="mt-1 h-5 w-5 flex-shrink-0 text-accent" />
-                    <div>
-                      <h4 className="font-semibold">পূর্ণ হিফজ</h4>
-                      <p className="text-sm text-muted-foreground">
-                        ৩০ পারা সম্পূর্ণ হিফজ
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="mt-1 h-5 w-5 flex-shrink-0 text-accent" />
-                    <div>
-                      <h4 className="font-semibold">দৈনিক সবক</h4>
-                      <p className="text-sm text-muted-foreground">
-                        নতুন সবক + পুরাতন সবক দোহরানো
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="mt-1 h-5 w-5 flex-shrink-0 text-accent" />
-                    <div>
-                      <h4 className="font-semibold">মুরাজাআহ (পুনরাবৃত্তি)</h4>
-                      <p className="text-sm text-muted-foreground">
-                        নিয়মিত দোহরানোর ব্যবস্থা
-                      </p>
-                    </div>
-                  </div>
+              <CardContent className="space-y-4 text-muted-foreground">
+                <div>
+                  <h4 className="font-semibold text-lg text-primary mb-2">
+                    ১. সবকের প্রস্তুতি ও সবক মুখস্থ
+                  </h4>
+                  <ul className="mt-1 space-y-1 ps-5">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="mt-1 h-4 w-4 text-accent flex-shrink-0" />
+                      <span>
+                        কুরআনের নির্ধারিত অংশ শিক্ষক নির্দেশনা অনুযায়ী স্পষ্ট ও
+                        সঠিক উচ্চারণে নাযিরা (দেখে) পড়া।
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="mt-1 h-4 w-4 text-accent flex-shrink-0" />
+                      <span>সঠিক তাজবীদ, মাখরাজ ও শুদ্ধ উচ্চারণে পাঠ করা।</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="mt-1 h-4 w-4 text-accent flex-shrink-0" />
+                      <span>মুখস্থ অংশ সাবলীলভাবে ও ভুল ছাড়া আদায় করা।</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 className="font-semibold text-lg text-primary mb-2">
+                    ২. দৈনিক অনুশীলন
+                  </h4>
+                  <ul className="mt-1 space-y-1 ps-5">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="mt-1 h-4 w-4 text-accent flex-shrink-0" />
+                      <span>প্রতিদিন নতুন সবক মুখস্থ করা।</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="mt-1 h-4 w-4 text-accent flex-shrink-0" />
+                      <span>
+                        আগের দিনগুলোর পড়া (পিছনের পড়া) নিয়মিত পুনরাবৃত্তি করা।
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="mt-1 h-4 w-4 text-accent flex-shrink-0" />
+                      <span>
+                        নির্দিষ্ট সময় দিয়ে নতুন ও পুরনো পাঠ উভয়ই অনুশীলন করা।
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 className="font-semibold text-lg text-primary mb-2">
+                    ৩. সাপ্তাহিক কার্যক্রম
+                  </h4>
+                  <ul className="mt-1 space-y-1 ps-5">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="mt-1 h-4 w-4 text-accent flex-shrink-0" />
+                      <span>
+                        সপ্তাহে একদিন কুরআন মশক (পরীক্ষা/রিভিউ ক্লাস) অনুষ্ঠিত
+                        হবে।
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="mt-1 h-4 w-4 text-accent flex-shrink-0" />
+                      <span>
+                        সেই দিনে সপ্তাহের সব পাঠ একত্রে পুনরাবৃত্তি করা হবে।
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="mt-1 h-4 w-4 text-accent flex-shrink-0" />
+                      <span>ভুল সংশোধন ও পাঠের মান যাচাই করা হবে।</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 className="font-semibold text-lg text-primary mb-2">
+                    ৪. অতিরিক্ত পাঠ ও আলোচনা
+                  </h4>
+                  <ul className="mt-1 space-y-1 ps-5">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="mt-1 h-4 w-4 text-accent flex-shrink-0" />
+                      <span>
+                        প্রয়োজনীয় মাসআলা-মাসায়েল (দৈনন্দিন ইসলামী বিধান) বিষয়ে
+                        আলোচনা।
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="mt-1 h-4 w-4 text-accent flex-shrink-0" />
+                      <span>
+                        কুরআন মুখস্থের আদব, নিয়ম-কানুন, ও কৌশল শেখানো।
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="mt-1 h-4 w-4 text-accent flex-shrink-0" />
+                      <span>
+                        হিফজের আগ্রহ, শৃঙ্খলা ও ধারাবাহিকতা বজায় রাখার উপদেশ
+                        দেওয়া।
+                      </span>
+                    </li>
+                  </ul>
                 </div>
               </CardContent>
             </Card>
@@ -121,9 +165,38 @@ const QuranHifz = () => {
                 <div className="flex items-center gap-3">
                   <BookOpen className="h-5 w-5 text-primary" />
                   <div>
-                    <p className="text-sm text-muted-foreground">ক্লাসের ধরন</p>
-                    <p className="font-semibold">ওয়ান-টু-ওয়ান</p>
+                    <div>
+                      <p className="text-sm text-muted-foreground">
+                        ক্লাসের ধরন
+                      </p>
+                      <p className="font-semibold">ওয়ান-টু-ওয়ান / গ্রুপ</p>
+                    </div>
                   </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="shadow-elegant">
+              <CardHeader>
+                <CardTitle>ফযীলত</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-5">
+                <div className="text-muted-foreground space-y-3">
+                  <blockquote className="border-l-4 border-primary pl-3 arabic-font">
+                    عَنْ مُعَاذِ بْنِ أَنَسٍ، عَنِ النَّبِيِّ ﷺ قَالَ: «مَنْ
+                    قَرَأَ الْقُرْآنَ وَعَمِلَ بِمَا فِيهِ، أُلْبِسَ وَالِدَاهُ
+                    تَاجًا يَوْمَ الْقِيَامَةِ ضَوْءُهُ أَحْسَنُ مِنْ ضَوْءِ
+                    الشَّمْسِ فِي بُيُوتِ الدُّنْيَا، لَوْ كَانَتْ فِيكُمْ،
+                    فَمَا ظَنُّكُمْ بِالَّذِي عَمِلَ بِهَذَا؟»
+                  </blockquote>
+                  <p>
+                    অর্থ: রাসুলুল্লাহ ﷺ বলেছেন, “যে ব্যক্তি কুরআন তেলাওয়াত করে
+                    ও তার বিধান অনুযায়ী আমল করে, কিয়ামতের দিনে তার পিতা-মাতাকে
+                    এমন মুকুট পরানো হবে যার আলো দুনিয়ার সূর্যের আলোর চেয়েও
+                    উজ্জ্বল হবে। তাহলে তুমি কি ধারণা কর সেই ব্যক্তির মর্যাদা
+                    কেমন হবে, যে নিজে কুরআনের উপর আমল করেছে?” (সুনান আবু দাউদ,
+                    হাদীস নং ১৪৫৩)
+                  </p>
                 </div>
               </CardContent>
             </Card>

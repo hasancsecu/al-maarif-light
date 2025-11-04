@@ -1,4 +1,5 @@
 @import url("https://fonts.maateen.me/kalpurush/font.css");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400..700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -9,6 +10,14 @@ All colors MUST be HSL.
 
 body {
   font-family: "Kalpurush", serif;
+}
+
+.arabic-font {
+  font-family: "Noto Naskh Arabic", serif;
+  font-size: 1.15rem;
+  line-height: 2.25rem;
+  direction: rtl;
+  text-align: right;
 }
 
 @layer base {

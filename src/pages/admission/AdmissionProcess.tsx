@@ -142,7 +142,7 @@ const AdmissionProcess = () => {
             <div className="grid gap-4 md:grid-cols-2">
               <div>
                 <h3 className="mb-2 font-semibold">ভর্তি ফরমে যা প্রয়োজন:</h3>
-                <ul className="list-inside list-disc space-y-1 text-sm text-muted-foreground">
+                <ul className="list-inside list-disc space-y-2 text-sm text-muted-foreground">
                   <li>শিক্ষার্থীর পূর্ণ নাম</li>
                   <li>বয়স ও জন্ম তারিখ</li>
                   <li>যোগাযোগের ঠিকানা</li>
@@ -152,11 +152,13 @@ const AdmissionProcess = () => {
               </div>
               <div>
                 <h3 className="mb-2 font-semibold">ক্লাস সময় নির্বাচন:</h3>
-                <ul className="list-inside list-disc space-y-1 text-sm text-muted-foreground">
-                  <li>সকাল (৮:০০ - ১২:০০)</li>
-                  <li>দুপুর (১২:০০ - ৫:০০)</li>
-                  <li>সন্ধ্যা (৫:০০ - ৯:০০)</li>
-                  <li>রাত (৯:০০ - ১১:০০)</li>
+                <ul className="list-inside list-disc space-y-2 text-sm text-muted-foreground">
+                  <li> সকাল (৬:০০ - ৭:০০)</li>
+                  <li>সকাল (৭:০০ - ৮:০০)</li>
+                  <li>সকাল (৮:০০ - ৯:০০)</li>
+                  <li>সকাল (৯:০০ - ১০:০০)</li>
+                  <li>সকাল (১০:০০ - ১১:০০)</li>
+                  <li>দুপুর (১১:০০ - ১২:০০)</li>
                 </ul>
               </div>
             </div>

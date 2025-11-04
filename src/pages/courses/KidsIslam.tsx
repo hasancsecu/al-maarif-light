@@ -33,61 +33,152 @@ const KidsIslam = () => {
 
             <Card className="shadow-elegant">
               <CardHeader>
-                <CardTitle>ফযীলত</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                <p className="text-muted-foreground">
-                  রাসুলুল্লাহ ﷺ বলেছেন: "তোমরা প্রত্যেকেই দায়িত্বশীল এবং
-                  তোমাদের দায়িত্ব সম্পর্কে জিজ্ঞাসিত হবে।" (বুখারী)
-                </p>
-                <p className="text-muted-foreground">
-                  শৈশবে শেখা ইসলামী শিক্ষা সারাজীবনের পাথেয় হয়ে থাকে।
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="shadow-elegant">
-              <CardHeader>
                 <CardTitle>সিলেবাস</CardTitle>
               </CardHeader>
-              <CardContent>
-                <div className="space-y-3">
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="mt-1 h-5 w-5 flex-shrink-0 text-accent" />
-                    <div>
-                      <h4 className="font-semibold">আকীদা ও তাওহীদ</h4>
-                      <p className="text-sm text-muted-foreground">
-                        আল্লাহ ও রাসূল সম্পর্কে মৌলিক জ্ঞান
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="mt-1 h-5 w-5 flex-shrink-0 text-accent" />
-                    <div>
-                      <h4 className="font-semibold">নবীজির জীবনী (সীরাহ)</h4>
-                      <p className="text-sm text-muted-foreground">
-                        গল্পের মাধ্যমে সীরাহ শিক্ষা
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="mt-1 h-5 w-5 flex-shrink-0 text-accent" />
-                    <div>
-                      <h4 className="font-semibold">দৈনন্দিন দোয়া ও আমল</h4>
-                      <p className="text-sm text-muted-foreground">
-                        সকাল-সন্ধ্যার দোয়া
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="mt-1 h-5 w-5 flex-shrink-0 text-accent" />
-                    <div>
-                      <h4 className="font-semibold">নামায ও পবিত্রতা</h4>
-                      <p className="text-sm text-muted-foreground">
-                        ব্যবহারিক শিক্ষা
-                      </p>
-                    </div>
-                  </div>
+              <CardContent className="space-y-4 text-muted-foreground">
+                <div>
+                  <h4 className="font-semibold text-lg text-primary mb-2">
+                    ১. সীরাহ শিক্ষা
+                  </h4>
+                  <ul className="mt-1 space-y-1 ps-5">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="mt-1 h-4 w-4 text-accent flex-shrink-0" />
+                      <span>
+                        শিক্ষার আলোকে রাসূল সাল্লাল্লাহু আলাইহি ওয়া সাল্লামের
+                        জীবনকথা (সীরাহ) অধ্যয়ন
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="mt-1 h-4 w-4 text-accent flex-shrink-0" />
+                      <span>সীরাহ পাঠের মাধ্যমে আদর্শ জীবন গঠন</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="mt-1 h-4 w-4 text-accent flex-shrink-0" />
+                      <span>
+                        শিশুদের বয়স উপযোগী গল্প ও ঘটনা দ্বারা শিক্ষা প্রদান
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 className="font-semibold text-lg text-primary mb-2">
+                    ২. আদাব ও আখলাক শিক্ষা
+                  </h4>
+                  <ul className="mt-1 space-y-1 ps-5">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="mt-1 h-4 w-4 text-accent flex-shrink-0" />
+                      <span>সীরাহ পাঠের আলোকে মৌলিক আদব ও আখলাক শিক্ষা</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="mt-1 h-4 w-4 text-accent flex-shrink-0" />
+                      <span>বাস্তব জীবনে আচরণে প্রয়োগে উৎসাহ দেওয়া</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="mt-1 h-4 w-4 text-accent flex-shrink-0" />
+                      <span>বাবা-মা, শিক্ষক ও বন্ধুদের সাথে আচরণবিধি</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 className="font-semibold text-lg text-primary mb-2">
+                    ৩. আমলী সূরা শিক্ষা
+                  </h4>
+                  <ul className="mt-1 space-y-1 ps-5">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="mt-1 h-4 w-4 text-accent flex-shrink-0" />
+                      <span>দৈনন্দিন জীবনে পড়া হয় এমন সূরাগুলোর শিক্ষা</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="mt-1 h-4 w-4 text-accent flex-shrink-0" />
+                      <span>সূরা ফীল থেকে সূরা নাস পর্যন্ত মুখস্থ</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="mt-1 h-4 w-4 text-accent flex-shrink-0" />
+                      <span>অর্থ ও ব্যাখ্যার প্রাথমিক ধারণা</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 className="font-semibold text-lg text-primary mb-2">
+                    ৪. হাদীস শিক্ষা
+                  </h4>
+                  <ul className="mt-1 space-y-1 ps-5">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="mt-1 h-4 w-4 text-accent flex-shrink-0" />
+                      <span>
+                        শিশুদের বয়স উপযোগী বিষয়ভিত্তিক ১০০ সহীহ হাদীস মুখস্থ
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="mt-1 h-4 w-4 text-accent flex-shrink-0" />
+                      <span>
+                        প্রতিটি হাদীসের সংক্ষিপ্ত ব্যাখ্যা ও বাস্তব প্রয়োগ
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 className="font-semibold text-lg text-primary mb-2">
+                    ৫. দোয়া শিক্ষা
+                  </h4>
+                  <ul className="mt-1 space-y-1 ps-5">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="mt-1 h-4 w-4 text-accent flex-shrink-0" />
+                      <span>দৈনন্দিন জীবনের সকল মাসনূন দোয়া মুখস্থ</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="mt-1 h-4 w-4 text-accent flex-shrink-0" />
+                      <span>অর্থ ও প্রেক্ষাপটসহ শিক্ষা</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="mt-1 h-4 w-4 text-accent flex-shrink-0" />
+                      <span>ঘুমানোর আগে ও পরে দোয়া</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="mt-1 h-4 w-4 text-accent flex-shrink-0" />
+                      <span>খাবারের আগে-পরে দোয়া</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="mt-1 h-4 w-4 text-accent flex-shrink-0" />
+                      <span>ঘর থেকে বের হওয়ার ও প্রবেশের দোয়া</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="mt-1 h-4 w-4 text-accent flex-shrink-0" />
+                      <span>ভ্রমণ, অসুস্থতা ইত্যাদি পরিস্থিতির দোয়া</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 className="font-semibold text-lg text-primary mb-2">
+                    ৬. মৌলিক মাসায়েল শিক্ষা
+                  </h4>
+                  <ul className="mt-1 space-y-1 ps-5">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="mt-1 h-4 w-4 text-accent flex-shrink-0" />
+                      <span>শিশুদের জন্য প্রযোজ্য মৌলিক ফিকহ শিক্ষা</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="mt-1 h-4 w-4 text-accent flex-shrink-0" />
+                      <span>পবিত্রতা ও ওযুর নিয়ম</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="mt-1 h-4 w-4 text-accent flex-shrink-0" />
+                      <span>নামাজের সময় ও পদ্ধতি</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="mt-1 h-4 w-4 text-accent flex-shrink-0" />
+                      <span>রোযা সম্পর্কে প্রাথমিক ধারণা</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="mt-1 h-4 w-4 text-accent flex-shrink-0" />
+                      <span>ইসলামী শুভেচ্ছা, সালাম, দান ও আচরণ</span>
+                    </li>
+                  </ul>
                 </div>
               </CardContent>
             </Card>
@@ -119,9 +210,27 @@ const KidsIslam = () => {
                   <BookOpen className="h-5 w-5 text-primary" />
                   <div>
                     <p className="text-sm text-muted-foreground">ক্লাসের ধরন</p>
-                    <p className="font-semibold">গ্রুপ ক্লাস</p>
+                    <p className="font-semibold">ওয়ান-টু-ওয়ান / গ্রুপ</p>
                   </div>
                 </div>
+              </CardContent>
+            </Card>
+
+            <Card className="shadow-elegant">
+              <CardHeader>
+                <CardTitle>ফযীলত</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <blockquote className="border-l-4 border-primary pl-3 arabic-font">
+                  عَنْ أَبِي هُرَيْرَةَ رضي الله عنه قَالَ: قَالَ رَسُولُ
+                  اللَّهِ ﷺ: "كُلُّكُمْ رَاعٍ وَكُلُّكُمْ مَسْئُولٌ عَنْ
+                  رَعِيَّتِهِ"
+                </blockquote>
+                <p className="text-muted-foreground">
+                  অর্থ: রাসুলুল্লাহ ﷺ বলেছেন: “তোমরা প্রত্যেকেই দায়িত্বশীল এবং
+                  তোমাদের দায়িত্ব সম্পর্কে জিজ্ঞাসা করা হবে।” (সহীহ বুখারী,
+                  হাদীস নং ৮৯৩)
+                </p>
               </CardContent>
             </Card>
 

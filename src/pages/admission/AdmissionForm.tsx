@@ -278,17 +278,23 @@ const AdmissionForm = () => {
                         <SelectValue placeholder="সময় নির্বাচন করুন" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="morning">
-                          সকাল (৮:০০ - ১২:০০)
+                        <SelectItem value="sixtoseven">
+                          সকাল (৬:০০ - ৭:০০)
                         </SelectItem>
-                        <SelectItem value="afternoon">
-                          দুপুর (১২:০০ - ৫:০০)
+                        <SelectItem value="seventoeight">
+                          সকাল (৭:০০ - ৮:০০)
                         </SelectItem>
-                        <SelectItem value="evening">
-                          সন্ধ্যা (৫:০০ - ৯:০০)
+                        <SelectItem value="eighttonine">
+                          সকাল (৮:০০ - ৯:০০)
                         </SelectItem>
-                        <SelectItem value="night">
-                          রাত (৯:০০ - ১১:০০)
+                        <SelectItem value="ninetoten">
+                          সকাল (৯:০০ - ১০:০০)
+                        </SelectItem>
+                        <SelectItem value="tentoeleven">
+                          সকাল (১০:০০ - ১১:০০)
+                        </SelectItem>
+                        <SelectItem value="eleventotwelve">
+                          দুপুর (১১:০০ - ১২:০০)
                         </SelectItem>
                       </SelectContent>
                     </Select>

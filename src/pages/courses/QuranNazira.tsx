@@ -34,70 +34,157 @@ const QuranNazira = () => {
 
             <Card className="shadow-elegant">
               <CardHeader>
-                <CardTitle>ফযীলত</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                <p className="text-muted-foreground">
-                  রাসুলুল্লাহ ﷺ বলেছেন: "তোমাদের মধ্যে শ্রেষ্ঠ সেই, যে নিজে
-                  কুরআন শেখে এবং অন্যকে তা শেখায়।" (বুখারী)
-                </p>
-                <p className="text-muted-foreground">
-                  কিয়ামতের দিন কুরআন তিলাওয়াতকারীকে বলা হবে: "তুমি পড় এবং উপরে
-                  উঠতে থাক।" (তিরমিযী)
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="shadow-elegant">
-              <CardHeader>
                 <CardTitle>সিলেবাস</CardTitle>
               </CardHeader>
-              <CardContent>
-                <div className="space-y-3">
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="mt-1 h-5 w-5 flex-shrink-0 text-accent" />
-                    <div>
-                      <h4 className="font-semibold">
-                        ১ম পর্যায়: মৌলিক বর্ণ পরিচিতি
-                      </h4>
-                      <p className="text-sm text-muted-foreground">
-                        আরবি বর্ণমালা ও হরকত
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="mt-1 h-5 w-5 flex-shrink-0 text-accent" />
-                    <div>
-                      <h4 className="font-semibold">
-                        ২য় পর্যায়: তাজবীদের মৌলিক নিয়ম
-                      </h4>
-                      <p className="text-sm text-muted-foreground">
-                        মাদ্দ, গুন্নাহ, ইদগাম ইত্যাদি
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="mt-1 h-5 w-5 flex-shrink-0 text-accent" />
-                    <div>
-                      <h4 className="font-semibold">
-                        ৩য় পর্যায়: বিশেষ নিয়মাবলী
-                      </h4>
-                      <p className="text-sm text-muted-foreground">
-                        কালকালাহ, রা এর উচ্চারণ
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="mt-1 h-5 w-5 flex-shrink-0 text-accent" />
-                    <div>
-                      <h4 className="font-semibold">
-                        ৪র্থ পর্যায়: ব্যবহারিক অনুশীলন
-                      </h4>
-                      <p className="text-sm text-muted-foreground">
-                        ছোট সূরা থেকে বড় সূরা পর্যন্ত
-                      </p>
-                    </div>
-                  </div>
+              <CardContent className="space-y-4 text-muted-foreground">
+                <div>
+                  <h4 className="font-semibold text-lg text-primary mb-2">
+                    🕋 পর্যায় ১: প্রাথমিক স্তর
+                  </h4>
+                  <ol className="list-decimal list-inside space-y-3">
+                    <li>
+                      <strong>কায়দা ও তাজবীদ শিক্ষা:</strong>
+                      <ul className="mt-1 space-y-1 ps-5">
+                        <li className="flex items-start gap-2">
+                          <CheckCircle className="mt-1 h-4 w-4 text-accent flex-shrink-0" />
+                          <span>কুরআনের হরফ পরিচিতি ও মাখরাজ অনুশীলন</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <CheckCircle className="mt-1 h-4 w-4 text-accent flex-shrink-0" />
+                          <span>
+                            কায়দা শিক্ষা ও মৌলিক তাজবীদ (সঠিক উচ্চারণ ও
+                            স্পষ্টভাবে পড়ার অনুশীলন)
+                          </span>
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <strong>নামাজ শিক্ষা (মৌখিক ও মশক):</strong>
+                      <ul className="mt-1 space-y-1 ps-5">
+                        <li className="flex items-start gap-2">
+                          <CheckCircle className="mt-1 h-4 w-4 text-accent flex-shrink-0" />
+                          <span>
+                            নামাজের ফরজ, ওয়াজিব, সুন্নত ও মুসতাহাব সংক্রান্ত
+                            আলোচনা
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <CheckCircle className="mt-1 h-4 w-4 text-accent flex-shrink-0" />
+                          <span>প্র্যাকটিক্যাল নামাজ শিক্ষা</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <CheckCircle className="mt-1 h-4 w-4 text-accent flex-shrink-0" />
+                          <span>
+                            নামাজের গুরুত্বপূর্ণ দোয়া ও দুরুদ মুখস্থকরণ
+                          </span>
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <strong>দৈনন্দিন জীবনের দোয়াসমূহ:</strong>
+                      <ul className="mt-1 space-y-1 ps-5">
+                        <li className="flex items-start gap-2">
+                          <CheckCircle className="mt-1 h-4 w-4 text-accent flex-shrink-0" />
+                          <span>সকাল-সন্ধ্যার দোয়া</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <CheckCircle className="mt-1 h-4 w-4 text-accent flex-shrink-0" />
+                          <span>
+                            দৈনন্দিন জীবনের প্রয়োজনীয় অন্যান্য দোয়া (মুখস্থ ও
+                            মশক)
+                          </span>
+                        </li>
+                      </ul>
+                    </li>
+                  </ol>
+                </div>
+
+                <div>
+                  <h4 className="font-semibold text-lg text-primary mb-2">
+                    📖 পর্যায় ২: মধ্যবর্তী স্তর
+                  </h4>
+                  <ol className="list-decimal list-inside space-y-3">
+                    <li>
+                      <strong>কুরআন শিক্ষা:</strong>
+                      <ul className="mt-1 space-y-1 ps-5">
+                        <li className="flex items-start gap-2">
+                          <CheckCircle className="mt-1 h-4 w-4 text-accent flex-shrink-0" />
+                          <span>আমপারা (কুরআনের ৩০তম পারা) অধ্যয়ন</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <CheckCircle className="mt-1 h-4 w-4 text-accent flex-shrink-0" />
+                          <span>
+                            সূরা ফীল থেকে সূরা নাস পর্যন্ত ধারাবাহিকভাবে মুখস্থ
+                            ও মশক
+                          </span>
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <strong>দৈনন্দিন জীবনে ইসলামের প্রয়োগ:</strong>
+                      <ul className="mt-1 space-y-1 ps-5">
+                        <li className="flex items-start gap-2">
+                          <CheckCircle className="mt-1 h-4 w-4 text-accent flex-shrink-0" />
+                          <span>দোয়া ও ইবাদতের বাস্তব প্রয়োগ</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <CheckCircle className="mt-1 h-4 w-4 text-accent flex-shrink-0" />
+                          <span>সামাজিক ও নৈতিক শিক্ষা</span>
+                        </li>
+                      </ul>
+                    </li>
+                  </ol>
+                </div>
+
+                <div>
+                  <h4 className="font-semibold text-lg text-primary mb-2">
+                    🌙 পর্যায় ৩: উচ্চতর স্তর
+                  </h4>
+                  <ol className="list-decimal list-inside space-y-3">
+                    <li>
+                      <strong>কুরআন শিক্ষা:</strong>
+                      <ul className="mt-1 space-y-1 ps-5">
+                        <li className="flex items-start gap-2">
+                          <CheckCircle className="mt-1 h-4 w-4 text-accent flex-shrink-0" />
+                          <span>
+                            পূর্ণ কুরআন ধারাবাহিকভাবে শিক্ষা (সঠিক উচ্চারণ ও
+                            স্পষ্টভাবে পড়ার অনুশীলন)
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <CheckCircle className="mt-1 h-4 w-4 text-accent flex-shrink-0" />
+                          <span>
+                            তাজবীদ অনুশীলন ও সঠিক উচ্চারণে দৃষ্টান্তমূলক
+                            প্রশিক্ষণ
+                          </span>
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <strong>ইসলামের অন্যান্য গুরুত্বপূর্ণ মাসায়েল:</strong>
+                      <ul className="mt-1 space-y-1 ps-5">
+                        <li className="flex items-start gap-2">
+                          <CheckCircle className="mt-1 h-4 w-4 text-accent flex-shrink-0" />
+                          <span>রোজা: ফজিলত, নিয়মাবলি ও সময়জ্ঞান</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <CheckCircle className="mt-1 h-4 w-4 text-accent flex-shrink-0" />
+                          <span>হজ্জ: ফরজ, ওয়াজিব ও হজ্জের নিয়মাবলি</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <CheckCircle className="mt-1 h-4 w-4 text-accent flex-shrink-0" />
+                          <span>যাকাত: ফরজ, হিসাব ও বিতরণের নিয়ম</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <CheckCircle className="mt-1 h-4 w-4 text-accent flex-shrink-0" />
+                          <span>
+                            অতিরিক্ত বিষয়: হালাল-হারাম, জীবনের নৈতিকতা ও ইসলামী
+                            আচরণ
+                          </span>
+                        </li>
+                      </ul>
+                    </li>
+                  </ol>
                 </div>
               </CardContent>
             </Card>
@@ -131,6 +218,39 @@ const QuranNazira = () => {
                     <p className="text-sm text-muted-foreground">ক্লাসের ধরন</p>
                     <p className="font-semibold">ওয়ান-টু-ওয়ান / গ্রুপ</p>
                   </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="shadow-elegant">
+              <CardHeader>
+                <CardTitle>ফযীলত</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-5">
+                <div className="text-muted-foreground space-y-3">
+                  <blockquote className="border-l-4 border-primary pl-3 arabic-font">
+                    عَنْ عَائِشَةَ رَضِيَ اللَّهُ عَنْهَا، عَنِ النَّبِيِّ ﷺ
+                    قَالَ: «الَّذِي يَقْرَأُ الْقُرْآنَ وَهُوَ مَاهِرٌ بِهِ مَعَ
+                    السَّفَرَةِ الْكِرَامِ الْبَرَرَةِ، وَالَّذِي يَقْرَأُ
+                    الْقُرْآنَ وَيَتَتَعْتَعُ فِيهِ، وَهُوَ عَلَيْهِ شَاقٌّ،
+                    لَهُ أَجْرَانِ»
+                  </blockquote>
+                  <p>
+                    অর্থ: রাসুলুল্লাহ ﷺ বলেছেন, “যে ব্যক্তি কুরআন পাঠ করে এবং
+                    এতে পারদর্শী, সে থাকবে সম্মানিত ও অনুগত ফেরেশতাদের সঙ্গে। আর
+                    যে ব্যক্তি কুরআন পড়ে এবং এতে জড়তা অনুভব করে, কিন্তু তবুও
+                    পাঠ করে, তার জন্য দ্বিগুণ প্রতিদান।” (সহীহ আল-বুখারী, হাদীস
+                    নং ৪৯৩৭ , সহীহ মুসলিম, হাদীস নং ৭৯৮)
+                  </p>
+                </div>
+                <div className="text-muted-foreground space-y-3">
+                  <blockquote className="border-l-4 border-primary pl-3 text-muted-foreground arabic-font">
+                    "خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ"
+                  </blockquote>
+                  <p>
+                    অর্থাৎ — “তোমাদের মধ্যে সর্বোত্তম সেই ব্যক্তি, যে নিজে কুরআন
+                    শেখে এবং অন্যকে তা শেখায়।”(বুখারী, হাদীস নং ৫০২৭)
+                  </p>
                 </div>
               </CardContent>
             </Card>

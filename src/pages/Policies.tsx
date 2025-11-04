@@ -52,7 +52,8 @@ const Policies = () => {
               <div className="flex items-start gap-3">
                 <CheckCircle className="mt-1 h-5 w-5 flex-shrink-0 text-accent" />
                 <p className="text-muted-foreground">
-                  প্রতিটি ক্লাসের পর দেওয়া হোমওয়ার্ক সম্পন্ন করতে হবে।
+                  প্রতিটি “ওয়ান টু ওয়ান” ক্লাস ৪০-৪৫ মিনিট, আর “গ্রুপ ক্লাস”
+                  ৫০-৬০ মিনিট হয়ে থাকে। আলোচনা সাপেক্ষে সময় কমানো/বাড়ানো সম্ভব।
                 </p>
               </div>
             </CardContent>
@@ -111,6 +112,13 @@ const Policies = () => {
                 <CheckCircle className="mt-1 h-5 w-5 flex-shrink-0 text-accent" />
                 <p className="text-muted-foreground">
                   কোনো প্রকার অনৈতিক বা অসদাচরণ গ্রহণযোগ্য নয়।
+                </p>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle className="mt-1 h-5 w-5 flex-shrink-0 text-accent" />
+                <p className="text-muted-foreground">
+                  শিক্ষক অথবা সহপাঠিদের সঙ্গে, পূর্ব পরিচিতি ছাড়া আর্থিক লেনদেনে
+                  জড়ানো উচিত নয়।
                 </p>
               </div>
             </CardContent>
