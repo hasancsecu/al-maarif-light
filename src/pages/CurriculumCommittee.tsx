@@ -2,26 +2,29 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Users, BookOpen, Target } from "lucide-react";
 
 const CurriculumCommittee = () => {
+  const admin = {
+    name: "হাফেজ মাওলানা নূরুদ্দীন মুহাম্মাদ",
+    qualification:
+      "প্রতিষ্ঠাতা পরিচালক: আল-মা’আরিফ ইন্টারন্যাশনাল ইনস্টিটিউট,ঢাকা",
+  };
   const members = [
     {
-      name: "শায়খ [নাম ১]",
-      role: "কারিকুলাম প্রধান",
-      qualification: "দাওরায়ে হাদীস, আরবি সাহিত্যে স্নাতকোত্তর",
+      name: "হাফেজ মাওলানা যুবাইর আহমাদ ওয়ারিসী",
+      qualification:
+        "ফাউন্ডার ও এডমিন: আন-নাসীহা একাডেমী, ঢাকা, শিক্ষক: আন নূর একাডেমি, উত্তরা, ঢাকা",
     },
     {
-      name: "উস্তাদ [নাম ২]",
-      role: "কুরআন বিভাগ প্রধান",
-      qualification: "হাফিজুল কুরআন, তাজবীদ বিশেষজ্ঞ",
+      name: "মাওলানা মুফতী আবুল বাশার",
+      qualification: "পরিচালক: আল-জামিয়াতুল ইসলামিয়া মাহমুদিয়া, চুয়াডাঙ্গা",
     },
     {
-      name: "উস্তাদা [নাম ৩]",
-      role: "মহিলা বিভাগ প্রধান",
-      qualification: "ইসলামিক স্টাডিজে স্নাতকোত্তর",
+      name: "জনাব রহমাতুল্লাহ স্যার",
+      qualification:
+        "প্রতিষ্ঠাতা পরিচালক: হিকমাহ ইন্টারন্যাশনাল স্কুল, মিরপুর-১৪, ঢাকা",
     },
     {
-      name: "শায়খ [নাম ৪]",
-      role: "হাদীস বিভাগ প্রধান",
-      qualification: "দাওরায়ে হাদীস, হাদীস গবেষক",
+      name: "জনাব হাসান সৌরভ",
+      qualification: "সফটওয়্যার ইঞ্জিনিয়ার",
     },
   ];
 
@@ -76,6 +79,30 @@ const CurriculumCommittee = () => {
           </Card>
         </div>
 
+        <div className="grid md:grid-cols-12 mb-6">
+          <div className="md:col-span-3"></div>
+          <div className="md:col-span-6">
+            <Card className="shadow-elegant transition-transform hover:scale-105">
+              <CardContent className="p-6">
+                <div className="flex items-start gap-4">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-primary to-accent">
+                    <Users className="h-8 w-8 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="mb-1 text-xl font-bold text-primary">
+                      {admin.name}
+                    </h3>
+                    <p className="text-sm text-muted-foreground">
+                      {admin.qualification}
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+          <div className="md:col-span-3"></div>
+        </div>
+
         <div className="grid gap-6 md:grid-cols-2">
           {members.map((member, index) => (
             <Card
@@ -91,9 +118,6 @@ const CurriculumCommittee = () => {
                     <h3 className="mb-1 text-xl font-bold text-primary">
                       {member.name}
                     </h3>
-                    <p className="mb-2 text-sm font-medium text-accent">
-                      {member.role}
-                    </p>
                     <p className="text-sm text-muted-foreground">
                       {member.qualification}
                     </p>
