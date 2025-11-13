@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, BookOpen, ChevronDown } from "lucide-react";
+import { Menu, X, BookOpen, ChevronDown, Languages } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export interface NavItem {
   title: string;
@@ -9,56 +10,58 @@ export interface NavItem {
   children?: NavItem[];
 }
 
-export const navItems: NavItem[] = [
-  { title: "হোম", path: "/" },
+const getNavItems = (t: (key: string) => string): NavItem[] => [
+  { title: t('nav.home'), path: "/" },
   {
-    title: "আমাদের সম্পর্কে",
+    title: t('nav.about'),
     children: [
-      { title: "এ এম আই টি সম্পর্কে", path: "/about" },
-      { title: "লক্ষ্য ও উদ্দেশ্য", path: "/goals" },
-      { title: "বৈশিষ্ট্যসমূহ", path: "/features" },
-      { title: "নীতিমালা", path: "/policies" },
+      { title: t('nav.aboutInstitute'), path: "/about" },
+      { title: t('nav.goals'), path: "/goals" },
+      { title: t('nav.features'), path: "/features" },
+      { title: t('nav.policies'), path: "/policies" },
     ],
   },
   {
-    title: "পরিচালক প্যানেল",
+    title: t('nav.directors'),
     children: [
-      { title: "প্রতিষ্ঠাতা পরিচালক", path: "/founder-director" },
-      { title: "পাঠ্যক্রম কমিটি", path: "/curriculum-committee" },
+      { title: t('nav.founderDirector'), path: "/founder-director" },
+      { title: t('nav.curriculum'), path: "/curriculum-committee" },
     ],
   },
-  { title: "শিক্ষক প্যানেল", path: "/teachers" },
+  { title: t('nav.teachers'), path: "/teachers" },
   {
-    title: "কোর্সসমূহ",
+    title: t('nav.courses'),
     children: [
-      { title: "তাজবীদসহ কুরআন শিক্ষা", path: "/courses/quran-nazira" },
-      { title: "কুরআন হিফজ", path: "/courses/quran-hifz" },
-      { title: "অনুবাদসহ কুরআন শিক্ষা", path: "/courses/quran-translation" },
-      { title: "বুখারী ও মুসলিম হিফজ", path: "/courses/hadith-hifz" },
-      { title: "শিশুদের ইসলাম শিক্ষা", path: "/courses/kids-islam" },
-      { title: "আরবী ভাষা", path: "/courses/arabic-language" },
+      { title: t('nav.quranNazira'), path: "/courses/quran-nazira" },
+      { title: t('nav.quranHifz'), path: "/courses/quran-hifz" },
+      { title: t('nav.quranTranslation'), path: "/courses/quran-translation" },
+      { title: t('nav.hadithHifz'), path: "/courses/hadith-hifz" },
+      { title: t('nav.kidsIslam'), path: "/courses/kids-islam" },
+      { title: t('nav.arabicLanguage'), path: "/courses/arabic-language" },
     ],
   },
   {
-    title: "ভর্তি সংক্রান্ত",
+    title: t('nav.admission'),
     children: [
-      { title: "ভর্তি প্রক্রিয়া ও যোগ্যতা", path: "/admission/process" },
-      { title: "ফরম ও ভর্তি ফি", path: "/admission/form" },
-      { title: "কোর্স ফি", path: "/admission/fees" },
+      { title: t('nav.admissionProcess'), path: "/admission/process" },
+      { title: t('nav.admissionForm'), path: "/admission/form" },
+      { title: t('nav.courseFees'), path: "/admission/fees" },
     ],
   },
-  { title: "নোটিশ বোর্ড", path: "/notice" },
-  { title: "যোগাযোগ", path: "/contact" },
-  { title: "ডোনেশন", path: "/donation" },
+  { title: t('nav.notice'), path: "/notice" },
+  { title: t('nav.contact'), path: "/contact" },
+  { title: t('nav.donation'), path: "/donation" },
 ];
 
 const Navbar = () => {
+  const { language, setLanguage, t } = useLanguage();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openSubmenus, setOpenSubmenus] = useState<{ [key: string]: boolean }>(
     {}
   );
   const location = useLocation();
   const navRef = useRef<HTMLDivElement>(null);
+  const navItems = getNavItems(t);
 
   const toggleSubmenu = (title: string) => {
     setOpenSubmenus((prev) => {
@@ -104,6 +107,19 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex gap-3 items-center">
+            {/* Language Switcher */}
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setLanguage(language === 'bn' ? 'en' : 'bn')}
+              className="mr-2"
+              title={language === 'bn' ? 'Switch to English' : 'বাংলায় পরিবর্তন করুন'}
+            >
+              <Languages className="h-5 w-5" />
+              <span className="ml-2 text-sm font-medium">
+                {language === 'bn' ? 'EN' : 'বাং'}
+              </span>
+            </Button>
             {navItems.map((item) => (
               <div key={item.title} className="relative group">
                 <div className="flex items-center h-10">
@@ -158,19 +174,31 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Mobile Menu Button */}
-          <Button
-            variant="secondary"
-            size="icon"
-            className="lg:hidden"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            {mobileMenuOpen ? (
-              <X className="h-6 w-6" />
-            ) : (
-              <Menu className="h-6 w-6" />
-            )}
-          </Button>
+          {/* Mobile Controls */}
+          <div className="flex items-center gap-2 lg:hidden">
+            {/* Mobile Language Switcher */}
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setLanguage(language === 'bn' ? 'en' : 'bn')}
+              title={language === 'bn' ? 'Switch to English' : 'বাংলায় পরিবর্তন করুন'}
+            >
+              <Languages className="h-5 w-5" />
+            </Button>
+            
+            {/* Mobile Menu Button */}
+            <Button
+              variant="secondary"
+              size="icon"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
+              {mobileMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
+            </Button>
+          </div>
         </div>
 
         {/* Mobile Menu */}

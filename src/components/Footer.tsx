@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import { BookOpen, Mail, Phone, MapPin, Facebook, Youtube } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Footer = () => {
+  const { t } = useLanguage();
+  
   return (
     <footer className="bg-primary text-primary-foreground">
       <div className="container mx-auto px-4 py-12">
@@ -11,26 +14,25 @@ const Footer = () => {
             <div className="mb-4 flex items-center gap-2">
               <BookOpen className="h-8 w-8" />
               <div>
-                <h3 className="text-lg font-bold">আল-মা'আরিফ</h3>
-                <p className="text-sm opacity-90">ইন্টারন্যাশনাল ইনস্টিটিউট</p>
+                <h3 className="text-lg font-bold">{t('footer.about')}</h3>
+                <p className="text-sm opacity-90">{t('footer.institute')}</p>
               </div>
             </div>
             <p className="text-sm opacity-90">
-              বিশ্বের প্রতিটি ঘরে কুরআন ও হাদীসের আলো পৌঁছে দেওয়া আমাদের
-              লক্ষ্য।
+              {t('footer.description')}
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="mb-4 text-lg font-bold">দ্রুত লিংক</h3>
+            <h3 className="mb-4 text-lg font-bold">{t('footer.quickLinks')}</h3>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link
                   to="/about"
                   className="opacity-90 hover:opacity-100 transition-opacity"
                 >
-                  আমাদের সম্পর্কে
+                  {t('footer.aboutUs')}
                 </Link>
               </li>
               <li>
@@ -38,7 +40,7 @@ const Footer = () => {
                   to="/courses/quran-nazira"
                   className="opacity-90 hover:opacity-100 transition-opacity"
                 >
-                  কোর্সসমূহ
+                  {t('footer.courses')}
                 </Link>
               </li>
               <li>
@@ -46,7 +48,7 @@ const Footer = () => {
                   to="/admission/process"
                   className="opacity-90 hover:opacity-100 transition-opacity"
                 >
-                  ভর্তি প্রক্রিয়া
+                  {t('footer.admissionProcess')}
                 </Link>
               </li>
               <li>
@@ -54,7 +56,7 @@ const Footer = () => {
                   to="/teachers"
                   className="opacity-90 hover:opacity-100 transition-opacity"
                 >
-                  শিক্ষক প্যানেল
+                  {t('footer.teachers')}
                 </Link>
               </li>
             </ul>
@@ -62,7 +64,7 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h3 className="mb-4 text-lg font-bold">যোগাযোগ</h3>
+            <h3 className="mb-4 text-lg font-bold">{t('footer.contact')}</h3>
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-2">
                 <Mail className="h-4 w-4 mt-0.5 flex-shrink-0" />
@@ -81,7 +83,7 @@ const Footer = () => {
 
           {/* Social Links */}
           <div>
-            <h3 className="mb-4 text-lg font-bold">সোশ্যাল মিডিয়া</h3>
+            <h3 className="mb-4 text-lg font-bold">{t('footer.socialMedia')}</h3>
             <div className="flex gap-4">
               <a
                 href="https://www.facebook.com/profile.php?id=61575175316710"
