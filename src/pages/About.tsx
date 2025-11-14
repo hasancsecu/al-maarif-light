@@ -1,19 +1,30 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { BookOpen, Target, Heart, Users } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const About = () => {
+  const { t } = useLanguage();
+
+  const values = [
+    { title: t('about.value1'), desc: t('about.value1Desc') },
+    { title: t('about.value2'), desc: t('about.value2Desc') },
+    { title: t('about.value3'), desc: t('about.value3Desc') },
+    { title: t('about.value4'), desc: t('about.value4Desc') },
+    { title: t('about.value5'), desc: t('about.value5Desc') },
+    { title: t('about.value6'), desc: t('about.value6Desc') },
+  ];
+
   return (
     <div className="min-h-screen bg-background py-12">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="mb-12 text-center">
           <h1 className="mb-3 text-4xl font-bold text-primary">
-            আমাদের সম্পর্কে
+            {t('about.title')}
           </h1>
           <div className="mx-auto h-1 w-24 bg-gradient-to-r from-primary to-accent"></div>
           <p className="mt-4 text-lg text-muted-foreground">
-            আল-মা'আরিফ ইন্টারন্যাশনাল ইনস্টিটিউট — দ্বীনের আলো ছড়িয়ে দেওয়ার
-            অঙ্গীকার
+            {t('about.subtitle')}
           </p>
         </div>
 
@@ -23,36 +34,19 @@ const About = () => {
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-2xl">
                 <BookOpen className="h-6 w-6 text-primary" />
-                প্রতিষ্ঠানের সূচনা
+                {t('about.ourBeginning')}
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4 text-lg leading-relaxed">
-              <p>
-                বর্তমান সময়ে আমরা দ্বীনের এক গভীর সংকটময় অধ্যায় পার করছি।
-                চারদিকে ফিতনার ঝড়—নাস্তিকতা, বস্তুবাদ, অবিশ্বাস ও বিভ্রান্তির
-                স্রোত পৃথিবীজুড়ে ছড়িয়ে পড়েছে। মানুষ কুরআনের হেদায়াত থেকে
-                দূরে সরে যাচ্ছে, রাসুলুল্লাহ ﷺ এর পবিত্র হাদীস অনুসরণ তো দূরের
-                কথা—অনেকেই আজ তা অস্বীকার করার দুঃসাহস দেখাচ্ছে।
-              </p>
-              <p>
-                তবুও, এই হতাশার ঘন অন্ধকারের ভেতরেও আশার এক ফালি আলোর ঝলকানি
-                দেখা যায়—একদল স্বপ্নবাজ, দ্বীনের প্রতি অনুরাগী তরুণ-তরুণীর
-                উদ্যোগে।
-              </p>
+              <p>{t('about.beginningText1')}</p>
+              <p>{t('about.beginningText2')}</p>
               <div className="rounded-lg bg-primary/10 p-6">
                 <h3 className="mb-4 text-xl font-bold text-primary">
-                  আল-মা'আরিফ ইন্টারন্যাশনাল ইনস্টিটিউটের সূচনা
+                  {t('about.foundingTitle')}
                 </h3>
-                <p className="mb-4">
-                  এই সংকটাপূর্ণ সময়ে, দ্বীনের আলো মানুষের অন্তরে জ্বালানোর দৃঢ়
-                  অঙ্গীকার নিয়ে, একঝাঁক তরুণ ওলামায়ে কেরাম এবং দ্বীনদার
-                  জেনারেল শিক্ষিত ব্যক্তিবর্গের উদ্যোগে প্রতিষ্ঠিত হয়
-                  অনলাইনভিত্তিক ইসলামিক শিক্ষা প্রতিষ্ঠান "আল-মা'আরিফ
-                  ইন্টারন্যাশনাল ইনস্টিটিউট"।
-                </p>
+                <p className="mb-4">{t('about.foundingText')}</p>
                 <p className="font-medium text-primary">
-                  প্রতিষ্ঠার তারিখ: ১২ অক্টোবর ২০২৫ ঈসায়ী / ২০ রবিউস্ সানি ১৪৪৭
-                  হিজরি / ২৭ আশ্বিন ১৪৩২ বঙ্গাব্দ
+                  {t('about.established')}: {t('about.establishedDate')}
                 </p>
               </div>
             </CardContent>
