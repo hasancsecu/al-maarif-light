@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
@@ -36,53 +36,51 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
-        <ScrollToTop />
-        <DynamicTitle />
-        <div className="flex min-h-screen flex-col">
-          <Navbar />
-          <main className="flex-1">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/goals" element={<Goals />} />
-              <Route path="/features" element={<Features />} />
-              <Route path="/policies" element={<Policies />} />
+      <ScrollToTop />
+      <DynamicTitle />
+      <div className="flex min-h-screen flex-col">
+        <Navbar />
+        <main className="flex-1">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/goals" element={<Goals />} />
+            <Route path="/features" element={<Features />} />
+            <Route path="/policies" element={<Policies />} />
 
-              <Route path="/founder-director" element={<FounderDirector />} />
-              <Route
-                path="/curriculum-committee"
-                element={<CurriculumCommittee />}
-              />
-              <Route path="/teachers" element={<Teachers />} />
+            <Route path="/founder-director" element={<FounderDirector />} />
+            <Route
+              path="/curriculum-committee"
+              element={<CurriculumCommittee />}
+            />
+            <Route path="/teachers" element={<Teachers />} />
 
-              <Route path="/courses/quran-nazira" element={<QuranNazira />} />
-              <Route path="/courses/quran-hifz" element={<QuranHifz />} />
-              <Route
-                path="/courses/quran-translation"
-                element={<QuranTranslation />}
-              />
-              <Route path="/courses/hadith-hifz" element={<HadithHifz />} />
-              <Route path="/courses/kids-islam" element={<KidsIslam />} />
-              <Route
-                path="/courses/arabic-language"
-                element={<ArabicLanguage />}
-              />
+            <Route path="/courses/quran-nazira" element={<QuranNazira />} />
+            <Route path="/courses/quran-hifz" element={<QuranHifz />} />
+            <Route
+              path="/courses/quran-translation"
+              element={<QuranTranslation />}
+            />
+            <Route path="/courses/hadith-hifz" element={<HadithHifz />} />
+            <Route path="/courses/kids-islam" element={<KidsIslam />} />
+            <Route
+              path="/courses/arabic-language"
+              element={<ArabicLanguage />}
+            />
 
-              <Route path="/admission/process" element={<AdmissionProcess />} />
-              <Route path="/admission/form" element={<AdmissionForm />} />
-              <Route path="/admission/fees" element={<AdmissionFees />} />
+            <Route path="/admission/process" element={<AdmissionProcess />} />
+            <Route path="/admission/form" element={<AdmissionForm />} />
+            <Route path="/admission/fees" element={<AdmissionFees />} />
 
-              <Route path="/notice" element={<NoticeBoard />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/donation" element={<Donation />} />
+            <Route path="/notice" element={<NoticeBoard />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/donation" element={<Donation />} />
 
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </main>
-          <Footer />
-        </div>
-      </BrowserRouter>
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
     </TooltipProvider>
   </QueryClientProvider>
 );
