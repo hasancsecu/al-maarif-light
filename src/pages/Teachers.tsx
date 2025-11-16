@@ -1,50 +1,53 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { GraduationCap, Award, Globe } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Teachers = () => {
+  const { language } = useLanguage();
+
   const teachers = [
     {
-      name: "উস্তাদ আব্দুল করিম",
-      specialization: "কুরআন তিলাওয়াত ও তাজবীদ",
-      qualification: "হাফিজুল কুরআন, ক্বারী",
-      experience: "১২ বছর",
-      language: ["বাংলা", "আরবি", "ইংরেজি"],
+      name: language === "bn" ? "উস্তাদ আব্দুল করিম" : "Ustad Abdul Karim",
+      specialization: language === "bn" ? "কুরআন তিলাওয়াত ও তাজবীদ" : "Quran Recitation & Tajweed",
+      qualification: language === "bn" ? "হাফিজুল কুরআন, ক্বারী" : "Hafizul Quran, Qari",
+      experience: language === "bn" ? "১২ বছর" : "12 years",
+      language: language === "bn" ? ["বাংলা", "আরবি", "ইংরেজি"] : ["Bangla", "Arabic", "English"],
     },
     {
-      name: "শায়খ মুহাম্মদ রহমান",
-      specialization: "হাদীস ও ফিকহ",
-      qualification: "দাওরায়ে হাদীস",
-      experience: "১৫ বছর",
-      language: ["বাংলা", "আরবি", "উর্দু"],
+      name: language === "bn" ? "শায়খ মুহাম্মদ রহমান" : "Sheikh Muhammad Rahman",
+      specialization: language === "bn" ? "হাদীস ও ফিকহ" : "Hadith & Fiqh",
+      qualification: language === "bn" ? "দাওরায়ে হাদীস" : "Dawrah-e-Hadith",
+      experience: language === "bn" ? "১৫ বছর" : "15 years",
+      language: language === "bn" ? ["বাংলা", "আরবি", "উর্দু"] : ["Bangla", "Arabic", "Urdu"],
     },
     {
-      name: "উস্তাদা ফাতিমা খাতুন",
-      specialization: "কুরআন ও ইসলামিক স্টাডিজ",
-      qualification: "হাফিজা, ইসলামিক স্টাডিজে স্নাতক",
-      experience: "৮ বছর",
-      language: ["বাংলা", "আরবি", "ইংরেজি"],
+      name: language === "bn" ? "উস্তাদা ফাতিমা খাতুন" : "Ustadha Fatima Khatun",
+      specialization: language === "bn" ? "কুরআন ও ইসলামিক স্টাডিজ" : "Quran & Islamic Studies",
+      qualification: language === "bn" ? "হাফিজা, ইসলামিক স্টাডিজে স্নাতক" : "Hafiza, Bachelor in Islamic Studies",
+      experience: language === "bn" ? "৮ বছর" : "8 years",
+      language: language === "bn" ? ["বাংলা", "আরবি", "ইংরেজি"] : ["Bangla", "Arabic", "English"],
     },
     {
-      name: "উস্তাদ ইব্রাহিম খলিল",
-      specialization: "আরবি ভাষা",
-      qualification: "আরবি সাহিত্যে স্নাতকোত্তর",
-      experience: "১০ বছর",
-      language: ["বাংলা", "আরবি"],
+      name: language === "bn" ? "উস্তাদ ইব্রাহিম খলিল" : "Ustad Ibrahim Khalil",
+      specialization: language === "bn" ? "আরবি ভাষা" : "Arabic Language",
+      qualification: language === "bn" ? "আরবি সাহিত্যে স্নাতকোত্তর" : "Master's in Arabic Literature",
+      experience: language === "bn" ? "১০ বছর" : "10 years",
+      language: language === "bn" ? ["বাংলা", "আরবি"] : ["Bangla", "Arabic"],
     },
     {
-      name: "উস্তাদা আয়েশা সিদ্দিকা",
-      specialization: "শিশু শিক্ষা ও সীরাহ",
-      qualification: "ইসলামিক স্টাডিজ",
-      experience: "৬ বছর",
-      language: ["বাংলা", "ইংরেজি"],
+      name: language === "bn" ? "উস্তাদা আয়েশা সিদ্দিকা" : "Ustadha Ayesha Siddiqua",
+      specialization: language === "bn" ? "শিশু শিক্ষা ও সীরাহ" : "Children's Education & Seerah",
+      qualification: language === "bn" ? "ইসলামিক স্টাডিজ" : "Islamic Studies",
+      experience: language === "bn" ? "৬ বছর" : "6 years",
+      language: language === "bn" ? ["বাংলা", "ইংরেজি"] : ["Bangla", "English"],
     },
     {
-      name: "শায়খ তাহের হুসাইন",
-      specialization: "হিফজ প্রশিক্ষক",
-      qualification: "হাফিজুল কুরআন",
-      experience: "১৪ বছর",
-      language: ["বাংলা", "আরবি"],
+      name: language === "bn" ? "শায়খ তাহের হুসাইন" : "Sheikh Taher Husain",
+      specialization: language === "bn" ? "হিফজ প্রশিক্ষক" : "Hifz Instructor",
+      qualification: language === "bn" ? "হাফিজুল কুরআন" : "Hafizul Quran",
+      experience: language === "bn" ? "১৪ বছর" : "14 years",
+      language: language === "bn" ? ["বাংলা", "আরবি"] : ["Bangla", "Arabic"],
     },
   ];
 
@@ -53,11 +56,11 @@ const Teachers = () => {
       <div className="container mx-auto px-4 py-12">
         <div className="mb-12 text-center">
           <h1 className="mb-3 text-4xl font-bold text-primary">
-            শিক্ষক প্যানেল
+            {language === "bn" ? "শিক্ষক প্যানেল" : "Teachers Panel"}
           </h1>
           <div className="mx-auto h-1 w-24 bg-gradient-to-r from-primary to-accent"></div>
           <p className="mt-4 text-lg text-muted-foreground">
-            আমাদের অভিজ্ঞ ও দক্ষ শিক্ষকমণ্ডলী
+            {language === "bn" ? "আমাদের অভিজ্ঞ ও দক্ষ শিক্ষকমণ্ডলী" : "Our Experienced and Skilled Teaching Staff"}
           </p>
         </div>
 
@@ -89,7 +92,7 @@ const Teachers = () => {
                     </div>
                     <div className="flex items-center justify-center gap-2">
                       <Globe className="h-4 w-4" />
-                      <span>অভিজ্ঞতা: {teacher.experience}</span>
+                      <span>{language === "bn" ? "অভিজ্ঞতা: " : "Experience: "}{teacher.experience}</span>
                     </div>
                   </div>
 
