@@ -10,31 +10,31 @@ const AdminContacts = () => {
   const contacts = [
     {
       id: "1",
-      name: "سارة أحمد",
+      name: "সারা আহমেদ",
       email: "sara@example.com",
       phone: "01234567890",
-      subject: "استفسار عن الرسوم الدراسية",
-      message: "أود الاستفسار عن الرسوم الدراسية للدورات المتاحة...",
+      subject: "কোর্সের ফি সম্পর্কে জিজ্ঞাসা",
+      message: "উপলব্ধ কোর্সের ফি সম্পর্কে জানতে চাই...",
       date: "2024-11-20",
       status: "new"
     },
     {
       id: "2",
-      name: "خالد محمود",
+      name: "খালেদ মাহমুদ",
       email: "khaled@example.com",
       phone: "01234567891",
-      subject: "سؤال عن مواعيد الدورات",
-      message: "متى تبدأ دورة حفظ القرآن الكريم؟",
+      subject: "কোর্সের সময়সূচী সম্পর্কে প্রশ্ন",
+      message: "কুরআন হিফজ কোর্স কখন শুরু হবে?",
       date: "2024-11-19",
       status: "replied"
     },
     {
       id: "3",
-      name: "نور الدين",
+      name: "নূর উদ্দিন",
       email: "noureldeen@example.com",
       phone: "01234567892",
-      subject: "طلب معلومات إضافية",
-      message: "أرغب في الحصول على معلومات إضافية عن المعهد...",
+      subject: "অতিরিক্ত তথ্যের অনুরোধ",
+      message: "ইনস্টিটিউট সম্পর্কে আরও তথ্য পেতে চাই...",
       date: "2024-11-18",
       status: "new"
     }
@@ -42,8 +42,8 @@ const AdminContacts = () => {
 
   const getStatusBadge = (status: string) => {
     const variants: Record<string, { label: string; variant: "default" | "secondary" }> = {
-      new: { label: "جديد", variant: "default" },
-      replied: { label: "تم الرد", variant: "secondary" }
+      new: { label: "নতুন", variant: "default" },
+      replied: { label: "উত্তর দেওয়া হয়েছে", variant: "secondary" }
     };
     return variants[status] || variants.new;
   };
@@ -53,32 +53,32 @@ const AdminContacts = () => {
       <div className="space-y-6">
         <div className="flex justify-between items-center">
           <div>
-            <h1 className="text-3xl font-bold">رسائل التواصل</h1>
-            <p className="text-muted-foreground mt-2">إدارة ومراجعة رسائل التواصل الواردة</p>
+            <h1 className="text-3xl font-bold">যোগাযোগের বার্তা</h1>
+            <p className="text-muted-foreground mt-2">প্রাপ্ত যোগাযোগের বার্তা পরিচালনা ও পর্যালোচনা</p>
           </div>
           <Button>
             <Download className="h-4 w-4 ml-2" />
-            تصدير البيانات
+            ডেটা রপ্তানি
           </Button>
         </div>
 
         <Card>
           <CardHeader>
-            <CardTitle>جميع الرسائل ({contacts.length})</CardTitle>
+            <CardTitle>সকল বার্তা ({contacts.length})</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="rounded-md border">
               <Table>
                 <TableHeader>
                   <TableRow>
-                    <TableHead>الاسم</TableHead>
-                    <TableHead>البريد الإلكتروني</TableHead>
-                    <TableHead>رقم الهاتف</TableHead>
-                    <TableHead>الموضوع</TableHead>
-                    <TableHead>الرسالة</TableHead>
-                    <TableHead>التاريخ</TableHead>
-                    <TableHead>الحالة</TableHead>
-                    <TableHead className="text-left">الإجراءات</TableHead>
+                    <TableHead>নাম</TableHead>
+                    <TableHead>ইমেইল</TableHead>
+                    <TableHead>ফোন নম্বর</TableHead>
+                    <TableHead>বিষয়</TableHead>
+                    <TableHead>বার্তা</TableHead>
+                    <TableHead>তারিখ</TableHead>
+                    <TableHead>অবস্থা</TableHead>
+                    <TableHead className="text-left">কার্যক্রম</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>

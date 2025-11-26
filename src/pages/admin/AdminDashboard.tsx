@@ -6,34 +6,34 @@ const AdminDashboard = () => {
   // Mock data for frontend display
   const stats = [
     {
-      title: "إجمالي طلبات القبول",
+      title: "মোট ভর্তি আবেদন",
       value: "24",
       icon: Users,
-      description: "طلب جديد هذا الأسبوع 5",
+      description: "এই সপ্তাহে ৫টি নতুন আবেদন",
       trend: "+12%",
       color: "text-blue-600"
     },
     {
-      title: "رسائل التواصل",
+      title: "যোগাযোগের বার্তা",
       value: "18",
       icon: FileText,
-      description: "رسالة جديدة اليوم 3",
+      description: "আজ ৩টি নতুন বার্তা",
       trend: "+8%",
       color: "text-green-600"
     },
     {
-      title: "الطلبات قيد المراجعة",
+      title: "পর্যালোচনাধীন আবেদন",
       value: "12",
       icon: Calendar,
-      description: "تحتاج إلى متابعة",
+      description: "ফলোআপ প্রয়োজন",
       trend: "0%",
       color: "text-orange-600"
     },
     {
-      title: "معدل النمو",
+      title: "বৃদ্ধির হার",
       value: "+15%",
       icon: TrendingUp,
-      description: "مقارنة بالشهر الماضي",
+      description: "গত মাসের তুলনায়",
       trend: "+3%",
       color: "text-purple-600"
     }
@@ -43,8 +43,8 @@ const AdminDashboard = () => {
     <AdminLayout>
       <div className="space-y-6">
         <div>
-          <h1 className="text-3xl font-bold">لوحة التحكم</h1>
-          <p className="text-muted-foreground mt-2">مرحباً بك في لوحة الإدارة</p>
+          <h1 className="text-3xl font-bold">ড্যাশবোর্ড</h1>
+          <p className="text-muted-foreground mt-2">অ্যাডমিন প্যানেলে স্বাগতম</p>
         </div>
 
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -66,7 +66,7 @@ const AdminDashboard = () => {
                     {stat.trend}
                   </span>
                   <span className="text-xs text-muted-foreground mr-2">
-                    من الفترة السابقة
+                    আগের সময়ের থেকে
                   </span>
                 </div>
               </CardContent>
@@ -77,18 +77,18 @@ const AdminDashboard = () => {
         <div className="grid gap-4 md:grid-cols-2">
           <Card>
             <CardHeader>
-              <CardTitle>آخر طلبات القبول</CardTitle>
+              <CardTitle>সাম্প্রতিক ভর্তি আবেদন</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
                 {[1, 2, 3].map((i) => (
                   <div key={i} className="flex items-center justify-between border-b pb-3 last:border-b-0">
                     <div>
-                      <p className="font-medium">طالب {i}</p>
-                      <p className="text-sm text-muted-foreground">دورة القرآن الكريم</p>
+                      <p className="font-medium">শিক্ষার্থী {i}</p>
+                      <p className="text-sm text-muted-foreground">কুরআন কোর্স</p>
                     </div>
                     <span className="text-xs text-muted-foreground">
-                      منذ {i} يوم
+                      {i} দিন আগে
                     </span>
                   </div>
                 ))}
@@ -98,18 +98,18 @@ const AdminDashboard = () => {
 
           <Card>
             <CardHeader>
-              <CardTitle>آخر رسائل التواصل</CardTitle>
+              <CardTitle>সাম্প্রতিক যোগাযোগের বার্তা</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
                 {[1, 2, 3].map((i) => (
                   <div key={i} className="flex items-center justify-between border-b pb-3 last:border-b-0">
                     <div>
-                      <p className="font-medium">مستخدم {i}</p>
-                      <p className="text-sm text-muted-foreground">استفسار عام</p>
+                      <p className="font-medium">ব্যবহারকারী {i}</p>
+                      <p className="text-sm text-muted-foreground">সাধারণ জিজ্ঞাসা</p>
                     </div>
                     <span className="text-xs text-muted-foreground">
-                      منذ {i * 2} ساعة
+                      {i * 2} ঘণ্টা আগে
                     </span>
                   </div>
                 ))}

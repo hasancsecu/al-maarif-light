@@ -10,9 +10,9 @@ const AdminAdmissions = () => {
   const admissions = [
     {
       id: "1",
-      student_name: "أحمد محمد علي",
-      course: "دورة حفظ القرآن الكريم",
-      gender: "ذكر",
+      student_name: "আহমেদ মোহাম্মদ আলী",
+      course: "কুরআন হিফজ কোর্স",
+      gender: "পুরুষ",
       phone: "01234567890",
       email: "ahmed@example.com",
       date: "2024-11-20",
@@ -20,9 +20,9 @@ const AdminAdmissions = () => {
     },
     {
       id: "2",
-      student_name: "فاطمة عبدالله",
-      course: "دورة تفسير القرآن",
-      gender: "أنثى",
+      student_name: "ফাতিমা আব্দুল্লাহ",
+      course: "কুরআন তাফসীর কোর্স",
+      gender: "মহিলা",
       phone: "01234567891",
       email: "fatima@example.com",
       date: "2024-11-19",
@@ -30,9 +30,9 @@ const AdminAdmissions = () => {
     },
     {
       id: "3",
-      student_name: "محمود حسن",
-      course: "دورة اللغة العربية",
-      gender: "ذكر",
+      student_name: "মাহমুদ হাসান",
+      course: "আরবি ভাষা কোর্স",
+      gender: "পুরুষ",
       phone: "01234567892",
       email: "mahmoud@example.com",
       date: "2024-11-18",
@@ -42,9 +42,9 @@ const AdminAdmissions = () => {
 
   const getStatusBadge = (status: string) => {
     const variants: Record<string, { label: string; variant: "default" | "secondary" | "destructive" }> = {
-      pending: { label: "قيد المراجعة", variant: "default" },
-      reviewed: { label: "تمت المراجعة", variant: "secondary" },
-      approved: { label: "مقبول", variant: "default" }
+      pending: { label: "পর্যালোচনাধীন", variant: "default" },
+      reviewed: { label: "পর্যালোচনা সম্পন্ন", variant: "secondary" },
+      approved: { label: "অনুমোদিত", variant: "default" }
     };
     return variants[status] || variants.pending;
   };
@@ -54,32 +54,32 @@ const AdminAdmissions = () => {
       <div className="space-y-6">
         <div className="flex justify-between items-center">
           <div>
-            <h1 className="text-3xl font-bold">طلبات القبول</h1>
-            <p className="text-muted-foreground mt-2">إدارة ومراجعة طلبات القبول المقدمة</p>
+            <h1 className="text-3xl font-bold">ভর্তি আবেদন</h1>
+            <p className="text-muted-foreground mt-2">জমা দেওয়া ভর্তি আবেদন পরিচালনা ও পর্যালোচনা</p>
           </div>
           <Button>
             <Download className="h-4 w-4 ml-2" />
-            تصدير البيانات
+            ডেটা রপ্তানি
           </Button>
         </div>
 
         <Card>
           <CardHeader>
-            <CardTitle>جميع طلبات القبول ({admissions.length})</CardTitle>
+            <CardTitle>সকল ভর্তি আবেদন ({admissions.length})</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="rounded-md border">
               <Table>
                 <TableHeader>
                   <TableRow>
-                    <TableHead>اسم الطالب</TableHead>
-                    <TableHead>الدورة</TableHead>
-                    <TableHead>الجنس</TableHead>
-                    <TableHead>رقم الهاتف</TableHead>
-                    <TableHead>البريد الإلكتروني</TableHead>
-                    <TableHead>التاريخ</TableHead>
-                    <TableHead>الحالة</TableHead>
-                    <TableHead className="text-left">الإجراءات</TableHead>
+                    <TableHead>শিক্ষার্থীর নাম</TableHead>
+                    <TableHead>কোর্স</TableHead>
+                    <TableHead>লিঙ্গ</TableHead>
+                    <TableHead>ফোন নম্বর</TableHead>
+                    <TableHead>ইমেইল</TableHead>
+                    <TableHead>তারিখ</TableHead>
+                    <TableHead>অবস্থা</TableHead>
+                    <TableHead className="text-left">কার্যক্রম</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
