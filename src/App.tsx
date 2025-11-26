@@ -9,6 +9,10 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import AdminLogin from "./pages/admin/AdminLogin";
+import AdminDashboard from "./pages/admin/AdminDashboard";
+import AdminAdmissions from "./pages/admin/AdminAdmissions";
+import AdminContacts from "./pages/admin/AdminContacts";
 import Features from "./pages/Features";
 import Goals from "./pages/Goals";
 import Policies from "./pages/Policies";
@@ -76,7 +80,13 @@ const App = () => (
             <Route path="/contact" element={<Contact />} />
             <Route path="/donation" element={<Donation />} />
 
-            <Route path="*" element={<NotFound />} />
+        {/* Admin Routes */}
+        <Route path="/admin/login" element={<AdminLogin />} />
+        <Route path="/admin/dashboard" element={<AdminDashboard />} />
+        <Route path="/admin/admissions" element={<AdminAdmissions />} />
+        <Route path="/admin/contacts" element={<AdminContacts />} />
+        
+        <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
         <Footer />
