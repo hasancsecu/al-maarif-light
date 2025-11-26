@@ -16,10 +16,10 @@ const AdminLogin = () => {
     e.preventDefault();
     // Frontend only - mock authentication
     if (email && password) {
-      toast.success("تم تسجيل الدخول بنجاح");
+      toast.success("সফলভাবে লগইন হয়েছে");
       navigate("/admin/dashboard");
     } else {
-      toast.error("يرجى إدخال البريد الإلكتروني وكلمة المرور");
+      toast.error("অনুগ্রহ করে ইমেইল এবং পাসওয়ার্ড দিন");
     }
   };
 
@@ -32,13 +32,13 @@ const AdminLogin = () => {
               <Lock className="h-8 w-8 text-primary" />
             </div>
           </div>
-          <CardTitle className="text-2xl font-bold">لوحة التحكم الإدارية</CardTitle>
-          <CardDescription>قم بتسجيل الدخول للوصول إلى لوحة التحكم</CardDescription>
+          <CardTitle className="text-2xl font-bold">অ্যাডমিন প্যানেল</CardTitle>
+          <CardDescription>ড্যাশবোর্ডে প্রবেশের জন্য লগইন করুন</CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleLogin} className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="email">البريد الإلكتروني</Label>
+              <Label htmlFor="email">ইমেইল</Label>
               <Input
                 id="email"
                 type="email"
@@ -49,7 +49,7 @@ const AdminLogin = () => {
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="password">كلمة المرور</Label>
+              <Label htmlFor="password">পাসওয়ার্ড</Label>
               <Input
                 id="password"
                 type="password"
@@ -60,7 +60,7 @@ const AdminLogin = () => {
               />
             </div>
             <Button type="submit" className="w-full">
-              تسجيل الدخول
+              লগইন
             </Button>
           </form>
         </CardContent>

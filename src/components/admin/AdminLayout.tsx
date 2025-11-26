@@ -13,24 +13,24 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
 
   const menuItems = [
     {
-      title: "لوحة التحكم",
+      title: "ড্যাশবোর্ড",
       icon: LayoutDashboard,
       path: "/admin/dashboard"
     },
     {
-      title: "طلبات القبول",
+      title: "ভর্তি আবেদন",
       icon: Users,
       path: "/admin/admissions"
     },
     {
-      title: "رسائل التواصل",
+      title: "যোগাযোগের বার্তা",
       icon: MessageSquare,
       path: "/admin/contacts"
     }
   ];
 
   const handleLogout = () => {
-    toast.success("تم تسجيل الخروج بنجاح");
+    toast.success("সফলভাবে লগআউট হয়েছে");
     navigate("/admin/login");
   };
 
@@ -39,10 +39,10 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
       {/* Header */}
       <header className="border-b bg-card">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <h1 className="text-xl font-bold">لوحة الإدارة - معهد القرآن الكريم</h1>
+          <h1 className="text-xl font-bold">অ্যাডমিন প্যানেল - কুরআন ইনস্টিটিউট</h1>
           <Button variant="ghost" onClick={handleLogout}>
             <LogOut className="h-4 w-4 ml-2" />
-            تسجيل الخروج
+            লগআউট
           </Button>
         </div>
       </header>
