@@ -1,11 +1,15 @@
+import { useState } from "react";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Eye, Download } from "lucide-react";
 import AdminLayout from "@/components/admin/AdminLayout";
+import { AdmissionDetailModal } from "@/components/admin/AdmissionDetailModal";
 
 const AdminAdmissions = () => {
+  const [selectedAdmission, setSelectedAdmission] = useState<any>(null);
+  const [modalOpen, setModalOpen] = useState(false);
   // Mock data for frontend display
   const admissions = [
     {
@@ -97,7 +101,14 @@ const AdminAdmissions = () => {
                           <Badge variant={statusInfo.variant}>{statusInfo.label}</Badge>
                         </TableCell>
                         <TableCell>
-                          <Button variant="ghost" size="sm">
+                          <Button 
+                            variant="ghost" 
+                            size="sm"
+                            onClick={() => {
+                              setSelectedAdmission(admission);
+                              setModalOpen(true);
+                            }}
+                          >
                             <Eye className="h-4 w-4" />
                           </Button>
                         </TableCell>
@@ -110,6 +121,12 @@ const AdminAdmissions = () => {
           </CardContent>
         </Card>
       </div>
+
+      <AdmissionDetailModal
+        admission={selectedAdmission}
+        open={modalOpen}
+        onOpenChange={setModalOpen}
+      />
     </AdminLayout>
   );
 };
