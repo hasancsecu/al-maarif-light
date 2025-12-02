@@ -1,11 +1,15 @@
+import { useState } from "react";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Eye, Download } from "lucide-react";
 import AdminLayout from "@/components/admin/AdminLayout";
+import { ContactDetailModal } from "@/components/admin/ContactDetailModal";
 
 const AdminContacts = () => {
+  const [selectedContact, setSelectedContact] = useState<any>(null);
+  const [modalOpen, setModalOpen] = useState(false);
   // Mock data for frontend display
   const contacts = [
     {
@@ -98,7 +102,14 @@ const AdminContacts = () => {
                           <Badge variant={statusInfo.variant}>{statusInfo.label}</Badge>
                         </TableCell>
                         <TableCell>
-                          <Button variant="ghost" size="sm">
+                          <Button 
+                            variant="ghost" 
+                            size="sm"
+                            onClick={() => {
+                              setSelectedContact(contact);
+                              setModalOpen(true);
+                            }}
+                          >
                             <Eye className="h-4 w-4" />
                           </Button>
                         </TableCell>
@@ -111,6 +122,12 @@ const AdminContacts = () => {
           </CardContent>
         </Card>
       </div>
+
+      <ContactDetailModal
+        contact={selectedContact}
+        open={modalOpen}
+        onOpenChange={setModalOpen}
+      />
     </AdminLayout>
   );
 };
